@@ -1,4 +1,4 @@
-# Python - Behave - Boiler Plate
+# Python - Behave - Boilerplate
 
 ####Tools and Frameworks
 [Selenium Webdriver](https://www.seleniumhq.org/projects/webdriver/), [Python 3.6](https://www.python.org/), [Behave](https://behave.readthedocs.io/en/latest/)
