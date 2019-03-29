@@ -1,0 +1,38 @@
+Feature: Challange gittigidiyor # features/cart.feature:1
+
+  Scenario: Cart cases for televizyon and iphone                 # features/cart.feature:3
+    Given I go to website "https://www.gittigidiyor.com"         # features/steps/cart.py:7
+    When I search for "televizyon"                               # features/steps/cart.py:12
+      Traceback (most recent call last):
+        File "/Users/sahabt/Downloads/new/env/lib/python3.7/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/Users/sahabt/Downloads/new/env/lib/python3.7/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "features/steps/cart.py", line 23, in step_impl
+          element = context.browser.find_element_by_id(submit_id)
+        File "/Users/sahabt/Downloads/new/env/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 353, in find_element_by_id
+          return self.find_element(by=By.ID, value=id_)
+        File "/Users/sahabt/Downloads/new/env/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 957, in find_element
+          'value': value})['value']
+        File "/Users/sahabt/Downloads/new/env/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 314, in execute
+          self.error_handler.check_response(response)
+        File "/Users/sahabt/Downloads/new/env/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+          raise exception_class(message, screen, stacktrace)
+      selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"id","selector":"header_find_button"}
+        (Session info: chrome=73.0.3683.86)
+        (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Mac OS X 10.13.3 x86_64)
+
+    And I click page "2" and item "5"                            # None
+    And I save price for "televizyon"                            # None
+    And I click "Sepete Ekle" id "add-to-basket" without Fixpack # None
+    Then I confirm television_price equals to cart_price         # None
+    Given I go to website "https://www.gittigidiyor.com"         # None
+    When I search for "iphone"                                   # None
+    And I click page "1" and item "5"                            # None
+    And I save price for "iphone"                                # None
+    And I click "Sepete Ekle" id "add-to-basket" without Fixpack # None
+    Then I confirm total_price equals to tv plus iphone          # None
+    When I delete "televizyon"                                   # None
+    Then I confirm total_price equals to iphone                  # None
+    When I clear Shopping Cart                                   # None
+
