@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 1. To run your code on terminal
 ```
-behave featurs/shoppingCart.feature
+behave features/shoppingCart.feature
 ```
 2. To run responsive test; width and height parameters(in pixel) must be added. Default value is 1920x1080
 ```
